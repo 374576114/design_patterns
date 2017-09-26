@@ -1,0 +1,1 @@
+learn the design patterns
