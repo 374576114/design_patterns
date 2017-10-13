@@ -14,11 +14,15 @@ class SingleObject
 	// 利用公有的静态函数来初始化
 	static SingleObject* get() 
 	{ 
-	    if (instance == NULL ) 
+	    if (instance == NULL) 
 		instance = new SingleObject();
 	    return instance; 
 	}
 	void showMessage() { cout<<"hello world\n"<<endl;}
+	~SingleObject()
+	{
+		instance = NULL;
+	}
 };
 
 SingleObject* SingleObject::instance = NULL;
@@ -26,6 +30,9 @@ SingleObject* SingleObject::instance = NULL;
 int main()
 {
     SingleObject* obj = SingleObject::get();
+    obj->showMessage();
+
+	delete obj;
     obj->showMessage();
 
     return 0;
